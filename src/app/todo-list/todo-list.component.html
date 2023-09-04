@@ -1,0 +1,32 @@
+<div class="container">
+<div class="cart mt-3">
+  <div class="row">
+    <div class="col">
+      <h2 class="text-center">
+        Create a new Todo
+      </h2>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-6">
+      <input class="form-control" [(ngModel)]="newTodo" placeholder="title"/>
+    </div>
+    <div class="col-md-4">
+      <input class="form-control" [(ngModel)]="newDate" typeplaceholder="date" type="date" />
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary w-100" (click)="addTodo()">add</button>
+    </div>
+  </div>
+</div>
+<h2 class="text-center mt-5">Todos</h2>
+<ul class="list-group mt-3">
+  <li class="list-group-item d-flex justify-content-between align-items-centere mt-3" *ngFor="let todo of todos; index as i">
+    {{todo.title}}
+    {{todo.date | date:'dd.mm.yyyy' }}
+    <button class='btn btn-danger' (click)="deleteTodo(i)">delete</button>
+  </li>
+</ul>
+</div>
+
